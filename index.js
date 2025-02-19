@@ -7,28 +7,19 @@ const { uploadToMinIO } = require('./uploadService');
 const cors = require('cors');
 
 const app = express();
-app.use(cors({
-  origin: '*',
-}));
-app.post('/upload', upload.single('avatar'), async (req, res) => {
-  
-
-  try {
-    if (req.file) {
+app.use(cors());
+app.post('/upload/avatar', upload.single('avatar'), async (req, res) => {
     
-
-      const imageUrl = await uploadToMinIO(req.file);
-      console.log(!req.file);
-      console.log("url",imageUrl);
-      
-      res.json({ imageUrl });
-
-    } else {
-      console.log('fuck');
+    
+  try {
+    if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
-
-
+     
+    const imageUrl = await uploadToMinIO(req.file);
+    console.log(imageUrl);
+    
+    res.json({ imageUrl });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
