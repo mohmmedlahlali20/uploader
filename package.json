@@ -1,0 +1,20 @@
+{
+  "name": "uploadtominioservice",
+  "version": "1.0.0",
+  "description": "this service is for uploading the image to min io ",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "minio": "^8.0.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9"
+  }
+}
