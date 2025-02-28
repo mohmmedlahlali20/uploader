@@ -4,7 +4,9 @@ const bucketName = 'avatars';
 
 const uploadToMinIO = async (file) => {
   if (!file) throw new Error('No file provided');
-
+console.log('====================================');
+console.log(file);
+console.log('====================================');
   const uniqueFileName = `image_${Date.now()}_${file.originalname}`;
   
   try {
